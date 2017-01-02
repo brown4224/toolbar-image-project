@@ -1,0 +1,96 @@
+// var imageList = {};
+// function readImageFiles(dirname) {
+//     fs.readdir(dirname, function (dirname, filenames) {
+//         // if(err){
+//         //     onError(err);
+//         //     return;
+//         // }
+//         filenames.forEach(function (filename) {
+//           console.log(filename);
+//             // imageList[i] = filename;
+//         })
+//     });
+// }
+
+
+
+// fs.pathname('/images').forEach(function (i,filename) {
+//     console.log(filename)
+// });
+
+// var normalizedPath = require("path").join(__dirname, "routes");
+
+
+// fs.readdirSync(normalizedPath).forEach(function(file) {
+//     require("./routes/" + file);
+// });
+
+// function request(request, response) {
+//     var store = '';
+//
+//     request.on('data', function(data)
+//     {
+//         store += data;
+//     });
+//     request.on('end', function()
+//     {  console.log(store);
+//         response.setHeader("Content-Type", "text/json");
+//         response.setHeader("Access-Control-Allow-Origin", "*");
+//         response.end(store)
+//     });
+// }
+
+
+
+// // Sort through image folder
+// function readImageFiles(dirname, onFileContent, onError) {
+//   fs.readdir(dirname, function(err, filenames){
+//     if(err){
+//       onError(err);
+//       return;
+//       }
+//       filenames.forEach(function (filename) {
+//         fs.readFile(dirname + filename, 'utf-8', function(err, content){
+//           if(err){
+//             onError(err);
+//             return;
+//           }
+//           onFileContent(filename,content);
+//         })
+//
+//       });
+//
+//   });
+//
+
+
+
+    // function processImage(imgFile){
+    //     // if(!imgFile.contains($imgType))
+    //     //     return;
+    //
+    //     // process image
+    //     console.log('loading images');
+    //     $imageZone.append("<img src = " + $imgFolder + imgFile);
+    // }
+
+    // $.ajax({
+    //     url: $imgFolder,
+    //     success: function (data) {
+    //         $data.find(RegExp(".jpg")).each(function(img) {
+    //             console.log(imag);
+    //         });
+    //     }
+    // });
+    // $.ajax({
+    //     url: "/images/",
+    //     success: function(data){
+    //         $(data).find("a:contains(.jpg)").each(function(){
+    //             // will loop through
+    //             var images = $(this).attr("href");
+    //             console.log(images);
+    //             // $('<p></p>').html(images).appendTo('a div of your choice')
+    //
+    //         });
+    //     }
+    // });
