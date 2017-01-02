@@ -17,16 +17,22 @@ a {
   width: 100%;
   object-fit: contain;
 }
-.square{
+/*.square{*/
+  /*height: 200px;*/
+  /*width: 200px;*/
+  /*float: left;*/
+/*}*/
+
+.show{
   height: 200px;
   width: 200px;
   float: left;
-}
-
-.show{
   display: initial;
 }
 .hide{
+  height: 200px;
+  width: 200px;
+  float: left;
   display: none;
 }
 

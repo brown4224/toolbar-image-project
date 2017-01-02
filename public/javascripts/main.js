@@ -38,7 +38,7 @@ $(function () {
 
     function imgHTML(filename) {
         var webpath = $urlImages + filename;
-        return '<div id="' + filename+ '" class="square show"><img class="media-object" src= "' +
+        return '<div id="' + filename+ '" class="show"><img class="media-object" src= "' +
             webpath + '" alt= "' +
             filename + '"></div>';
     }
@@ -55,23 +55,21 @@ $(function () {
         });
     });
 
-    // $toolbarText.keyup(function () {
     $toolbarText.delegate($imageZone,'keyup', function () {
         console.log('Searching for: ' + $toolbarText.val());
-        // $($imageZone.forEach() + ' [id^="content_"]').hide();
 
-        // $imageZone.forEach() + [id^=$toolbarText].hide();
         $imageZone.children().each(function () {
-           console.log(this);
+            var name = this.id;
+            console.log('text is: ' + $toolbarText.val());
+            // name.removeClass('show');
+
+            if(name.match( $toolbarText.val()  )){
+                // console.log(name);
+                document.getElementById(name).className = "show";
+            } else {
+                document.getElementById(name).className = "hide";
+            }
         });
-        // $imageZone.each(function () {
-        //     console.log(this.id);
-        // });
-
-
-        // $imageZone.find('div').forEach(function () {
-        //    console.log('')
-        // });
     });
 
 });
