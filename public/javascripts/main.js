@@ -14,18 +14,18 @@ $(function () {
 
     console.log('Start jquery');
 
-    // Add function when button clicked
-    // Will submit text box
-    $toolbarButton.click(function () {
-        $socket.emit('send message', $toolbarText.val());
-        $toolbarText.val('');
-    });
-
-    // This message will recieve "data" as an object
-    $socket.on('new message', function (data) {
-        console.log('Success Client Recieved!!!!');
-        $displayText.append(data + "<br/>");
-    });
+    // // Add function when button clicked
+    // // Will submit text box
+    // $toolbarButton.click(function () {
+    //     $socket.emit('send message', $toolbarText.val());
+    //     $toolbarText.val('');
+    // });
+    //
+    // // This message will recieve "data" as an object
+    // $socket.on('new message', function (data) {
+    //     console.log('Success Client Recieved!!!!');
+    //     $displayText.append(data + "<br/>");
+    // });
 
     // Get images and display
     // Request Images
@@ -36,16 +36,42 @@ $(function () {
         console.log("success, I recieved the correct message");
     });
 
+    function imgHTML(filename) {
+        var webpath = $urlImages + filename;
+        return '<div id="' + filename+ '" class="square show"><img class="media-object" src= "' +
+            webpath + '" alt= "' +
+            filename + '"></div>';
+    }
+
     // Recieve images and display
     $socket.on('image-list', function (data) {
         data.forEach(function (imgpath) {
+            //Edit path and load images
             var $imgName = imgpath.replace(".*/", "");
-            var $image = '<img src= "' + $urlImages + $imgName +  '" class= "media-object"> ';
-            // console.log("<img src= \"" + $urlImages + $imgName + "\"> ");
-            console.log($image);
+            var $image = imgHTML( $imgName);
+            // Re-position the boarders after loading images
             $imageZone.append($image);
             $displayText.css('position', 'absolute');
-
         });
     });
+
+    // $toolbarText.keyup(function () {
+    $toolbarText.delegate($imageZone,'keyup', function () {
+        console.log('Searching for: ' + $toolbarText.val());
+        // $($imageZone.forEach() + ' [id^="content_"]').hide();
+
+        // $imageZone.forEach() + [id^=$toolbarText].hide();
+        $imageZone.children().each(function () {
+           console.log(this);
+        });
+        // $imageZone.each(function () {
+        //     console.log(this.id);
+        // });
+
+
+        // $imageZone.find('div').forEach(function () {
+        //    console.log('')
+        // });
+    });
+
 });

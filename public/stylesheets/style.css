@@ -13,11 +13,22 @@ a {
   float: left;
 }
 .media-object{
-  height: 25%;
-  width: 25%;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+.square{
+  height: 200px;
+  width: 200px;
   float: left;
 }
 
+.show{
+  display: initial;
+}
+.hide{
+  display: none;
+}
 
 /*#image-zone{*/
   /*display: inline;*/
