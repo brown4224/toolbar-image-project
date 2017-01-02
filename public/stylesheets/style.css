@@ -6,3 +6,23 @@ body {
 a {
   color: #00B7FF;
 }
+
+.thumbnail{
+  height: 25%;
+  width: 25%;
+  float: left;
+}
+.media-object{
+  height: 25%;
+  width: 25%;
+  float: left;
+}
+
+
+/*#image-zone{*/
+  /*display: inline;*/
+  /*height: 25%;*/
+  /*width: 25%;*/
+/*}*/
+
+

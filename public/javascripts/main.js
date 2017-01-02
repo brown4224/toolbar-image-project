@@ -8,6 +8,10 @@ $(function () {
     var $toolbarButton = $('#toolbar-button');
     var $displayText = $('#display-text');
 
+    var $imageZone = $('#image-zone');
+    var $url = window.location.href;
+    var $urlImages = $url + "images/";
+
     console.log('Start jquery');
 
     // Add function when button clicked
@@ -23,23 +27,25 @@ $(function () {
         $displayText.append(data + "<br/>");
     });
 
-
     // Get images and display
-    var $imgFolder = '/images/';
-    var $imgType = '.jpeg';
-    var $imageZone = $('#image-zone');
-
-    console.log('load ajax function');
-
+    // Request Images
     $socket.emit('request-images');
 
-
+    //Recieve images
     $socket.on('image file path', function () {
         console.log("success, I recieved the correct message");
     });
 
+    // Recieve images and display
     $socket.on('image-list', function (data) {
-        console.log('recieving data');
-        console.log(data);
+        data.forEach(function (imgpath) {
+            var $imgName = imgpath.replace(".*/", "");
+            var $image = '<img src= "' + $urlImages + $imgName +  '" class= "media-object"> ';
+            // console.log("<img src= \"" + $urlImages + $imgName + "\"> ");
+            console.log($image);
+            $imageZone.append($image);
+            $displayText.css('position', 'absolute');
+
+        });
     });
 });

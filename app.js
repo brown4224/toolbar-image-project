@@ -67,8 +67,6 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
-// var imgData = [];
-// var imgPath = path.join(__dirname + '/public/images');
 // Chat application for socket.io
 sockIO.on('connection', function (socket) {
     console.log('A client connection occured!!!');
@@ -92,9 +90,7 @@ sockIO.on('connection', function (socket) {
             });
             sockIO.emit('image-list', imgData);
         });
-
     });
-
 });
 
 
