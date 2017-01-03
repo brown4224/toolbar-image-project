@@ -71,11 +71,6 @@ app.use(function (err, req, res, next) {
 sockIO.on('connection', function (socket) {
     console.log('A client connection occured!!!');
 
-    // Send the chat data to server
-    socket.on('send message', function (data) {
-        sockIO.emit('new message', data);
-    });
-
 // Create local variable with all images
     socket.on('request-images', function() {
         var imgData = [];
